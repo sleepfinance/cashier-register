@@ -16,7 +16,7 @@ return [
 
     'models' => [
 
-        'usage' => \RenokiCo\CashierRegister\Models\Usage::class,
+        'usage' => \Forgeify\CashierRegister\Models\Usage::class,
 
     ],
 
@@ -38,9 +38,9 @@ return [
 
             'subscription' => [
 
-                'stripe' => \RenokiCo\CashierRegister\Models\Stripe\Subscription::class,
+                'stripe' => \Forgeify\CashierRegister\Models\Stripe\Subscription::class,
 
-                'paddle' => \RenokiCo\CashierRegister\Models\Paddle\Subscription::class,
+                'paddle' => \Forgeify\CashierRegister\Models\Paddle\Subscription::class,
 
             ],
 

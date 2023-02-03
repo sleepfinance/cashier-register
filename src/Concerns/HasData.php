@@ -1,6 +1,6 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Concerns;
+namespace Forgeify\CashierRegister\Concerns;
 
 trait HasData
 {

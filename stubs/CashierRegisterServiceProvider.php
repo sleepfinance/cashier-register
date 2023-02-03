@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use RenokiCo\CashierRegister\CashierRegisterServiceProvider as BaseServiceProvider;
-use RenokiCo\CashierRegister\Saas;
+use Forgeify\CashierRegister\CashierRegisterServiceProvider as BaseServiceProvider;
+use Forgeify\CashierRegister\Saas;
 
 class CashierRegisterServiceProvider extends BaseServiceProvider
 {

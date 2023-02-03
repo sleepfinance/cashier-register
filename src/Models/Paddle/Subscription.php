@@ -1,10 +1,10 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Models\Paddle;
+namespace Forgeify\CashierRegister\Models\Paddle;
 
 use Laravel\Paddle\Subscription as CashierSubscription;
-use RenokiCo\CashierRegister\Concerns\HasPlans;
-use RenokiCo\CashierRegister\Concerns\HasQuotas;
+use Forgeify\CashierRegister\Concerns\HasPlans;
+use Forgeify\CashierRegister\Concerns\HasQuotas;
 
 class Subscription extends CashierSubscription
 {

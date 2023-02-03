@@ -1,6 +1,6 @@
 <?php
 
-namespace RenokiCo\CashierRegister;
+namespace Forgeify\CashierRegister;
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier as StripeCashier;

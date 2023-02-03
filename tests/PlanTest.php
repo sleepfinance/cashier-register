@@ -1,8 +1,8 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Test;
+namespace Forgeify\CashierRegister\Test;
 
-use RenokiCo\CashierRegister\Saas;
+use Forgeify\CashierRegister\Saas;
 
 class PlanTest extends TestCase
 {

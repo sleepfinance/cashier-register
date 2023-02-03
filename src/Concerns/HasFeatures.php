@@ -1,10 +1,10 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Concerns;
+namespace Forgeify\CashierRegister\Concerns;
 
-use RenokiCo\CashierRegister\Feature;
-use RenokiCo\CashierRegister\MeteredFeature;
-use RenokiCo\CashierRegister\Plan;
+use Forgeify\CashierRegister\Feature;
+use Forgeify\CashierRegister\MeteredFeature;
+use Forgeify\CashierRegister\Plan;
 
 trait HasFeatures
 {
@@ -33,7 +33,7 @@ trait HasFeatures
     /**
      * Inherit features from another plan.
      *
-     * @param  \RenokiCo\CashierRegister\Plan  $plan
+     * @param  \Forgeify\CashierRegister\Plan  $plan
      * @return self
      */
     public function inheritFeaturesFromPlan(Plan $plan, array $features = [])
@@ -73,8 +73,8 @@ trait HasFeatures
     /**
      * Get a specific feature by id.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
-     * @return \RenokiCo\CashierRegister\Feature|null
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
+     * @return \Forgeify\CashierRegister\Feature|null
      */
     public function getFeature($feature)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Exceptions;
+namespace Forgeify\CashierRegister\Exceptions;
 
 use Exception;
 

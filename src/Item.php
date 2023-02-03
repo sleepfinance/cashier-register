@@ -1,6 +1,6 @@
 <?php
 
-namespace RenokiCo\CashierRegister;
+namespace Forgeify\CashierRegister;
 
 use Illuminate\Contracts\Support\Arrayable;
 

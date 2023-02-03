@@ -1,12 +1,12 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Concerns;
+namespace Forgeify\CashierRegister\Concerns;
 
 use Closure;
-use RenokiCo\CashierRegister\Feature;
-use RenokiCo\CashierRegister\MeteredFeature;
-use RenokiCo\CashierRegister\Models\Usage;
-use RenokiCo\CashierRegister\Saas;
+use Forgeify\CashierRegister\Feature;
+use Forgeify\CashierRegister\MeteredFeature;
+use Forgeify\CashierRegister\Models\Usage;
+use Forgeify\CashierRegister\Saas;
 
 trait HasQuotas
 {
@@ -25,11 +25,11 @@ trait HasQuotas
     /**
      * Increment the feature usage.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
      * @param  int|float  $value
      * @param  bool  $incremental
      * @param  Closure|null  $exceedHandler
-     * @return \RenokiCo\CashierRegister\Models\Usage|null
+     * @return \Forgeify\CashierRegister\Models\Usage|null
      */
     public function recordFeatureUsage($feature, $value = 1, bool $incremental = true, Closure $exceedHandler = null)
     {
@@ -40,7 +40,7 @@ trait HasQuotas
             return;
         }
 
-        /** @var \RenokiCo\CashierRegister\Models\Usage $usage */
+        /** @var \Forgeify\CashierRegister\Models\Usage $usage */
         $usage = $this->usage()->firstOrNew([
             'subscription_id' => $this->getKey(),
             'feature_id' => $feature,
@@ -100,13 +100,13 @@ trait HasQuotas
     /**
      * Reduce the usage amount.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $id
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $id
      * @param  int|float  $uses
-     * @return null|\RenokiCo\CashierRegister\Models\Usage
+     * @return null|\Forgeify\CashierRegister\Models\Usage
      */
     public function reduceFeatureUsage($feature, $uses = 1, bool $incremental = true)
     {
-        /** @var \RenokiCo\CashierRegister\Models\Usage|null $usage */
+        /** @var \Forgeify\CashierRegister\Models\Usage|null $usage */
         $feature = $this->getPlan()->getFeature($feature);
 
         $usage = $this->usage()
@@ -135,9 +135,9 @@ trait HasQuotas
     /**
      * Reduce the usage amount.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
      * @param  int|float  $uses
-     * @return null|\RenokiCo\CashierRegister\Models\Usage
+     * @return null|\Forgeify\CashierRegister\Models\Usage
      */
     public function decrementFeatureUsage($feature, $uses = 1, bool $incremental = true)
     {
@@ -147,9 +147,9 @@ trait HasQuotas
     /**
      * Set the feature usage to a specific value.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
      * @param  int|float  $value
-     * @return \RenokiCo\CashierRegister\Models\Usage|null
+     * @return \Forgeify\CashierRegister\Models\Usage|null
      */
     public function setFeatureUsage($feature, $value)
     {
@@ -159,12 +159,12 @@ trait HasQuotas
     /**
      * Get the feature used quota.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
      * @return int|float
      */
     public function getUsedQuota($feature)
     {
-        /** @var \RenokiCo\CashierRegister\Models\Usage|null $usage */
+        /** @var \Forgeify\CashierRegister\Models\Usage|null $usage */
         $usage = $this->usage()
             ->whereFeatureId($feature)
             ->first();
@@ -175,12 +175,12 @@ trait HasQuotas
     /**
      * Get the feature used total quota.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
      * @return int|float
      */
     public function getTotalUsedQuota($feature)
     {
-        /** @var \RenokiCo\CashierRegister\Models\Usage|null $usage */
+        /** @var \Forgeify\CashierRegister\Models\Usage|null $usage */
         $usage = $this->usage()
             ->whereFeatureId($feature)
             ->first();
@@ -191,8 +191,8 @@ trait HasQuotas
     /**
      * Get the feature quota remaining.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
-     * @param  \RenokiCo\CashierRegister\Plan|string|int|null  $plan
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
+     * @param  \Forgeify\CashierRegister\Plan|string|int|null  $plan
      * @return int|float
      */
     public function getRemainingQuota($feature, $plan = null)
@@ -209,9 +209,9 @@ trait HasQuotas
     /**
      * Get the feature quota remaining.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
-     * @param  \RenokiCo\CashierRegister\Models\Usage  $usage
-     * @param  \RenokiCo\CashierRegister\Plan|string|int|null  $plan
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
+     * @param  \Forgeify\CashierRegister\Models\Usage  $usage
+     * @param  \Forgeify\CashierRegister\Plan|string|int|null  $plan
      * @return int|float
      */
     public function getRemainingQuotaFor($feature, $usage, $plan = null)
@@ -228,8 +228,8 @@ trait HasQuotas
     /**
      * Get the feature quota.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
-     * @param  \RenokiCo\CashierRegister\Plan|string|int|null  $plan
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
+     * @param  \Forgeify\CashierRegister\Plan|string|int|null  $plan
      * @return int|float
      */
     public function getFeatureQuota($feature, $plan = null)
@@ -248,8 +248,8 @@ trait HasQuotas
     /**
      * Check if the feature is over the assigned quota.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
-     * @param  \RenokiCo\CashierRegister\Plan|string|int|null  $plan
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
+     * @param  \Forgeify\CashierRegister\Plan|string|int|null  $plan
      * @return bool
      */
     public function featureOverQuota($feature, $plan = null): bool
@@ -268,9 +268,9 @@ trait HasQuotas
     /**
      * Check if the feature is over the assigned quota.
      *
-     * @param  \RenokiCo\CashierRegister\Feature|string|int  $feature
-     * @param  \RenokiCo\CashierRegister\Models\Usage  $usage
-     * @param  \RenokiCo\CashierRegister\Plan|string|int|null  $plan
+     * @param  \Forgeify\CashierRegister\Feature|string|int  $feature
+     * @param  \Forgeify\CashierRegister\Models\Usage  $usage
+     * @param  \Forgeify\CashierRegister\Plan|string|int|null  $plan
      * @return bool
      */
     public function featureOverQuotaFor($feature, $usage, $plan = null): bool
@@ -291,7 +291,7 @@ trait HasQuotas
      * if the current subscription would be swapped
      * to a new one.
      *
-     * @param  \RenokiCo\CashierRegister\Plan|string|int|null  $plan
+     * @param  \Forgeify\CashierRegister\Plan|string|int|null  $plan
      * @return \Illuminate\Support\Collection
      */
     public function featuresOverQuotaWhenSwapping($plan)

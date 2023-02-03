@@ -1,10 +1,10 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Test;
+namespace Forgeify\CashierRegister\Test;
 
 use Laravel\Cashier\Cashier as StripeCashier;
 use Orchestra\Testbench\TestCase as Orchestra;
-use RenokiCo\CashierRegister\Saas;
+use Forgeify\CashierRegister\Saas;
 
 abstract class TestCase extends Orchestra
 {
@@ -46,7 +46,7 @@ abstract class TestCase extends Orchestra
         return [
             \Laravel\Cashier\CashierServiceProvider::class,
             \Laravel\Paddle\CashierServiceProvider::class,
-            \RenokiCo\CashierRegister\CashierRegisterServiceProvider::class,
+            \Forgeify\CashierRegister\CashierRegisterServiceProvider::class,
         ];
     }
 

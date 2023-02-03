@@ -1,6 +1,6 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Test\Models\Stripe;
+namespace Forgeify\CashierRegister\Test\Models\Stripe;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;

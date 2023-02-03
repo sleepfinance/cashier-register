@@ -12,7 +12,7 @@
 
 use Illuminate\Support\Str;
 
-$factory->define(\RenokiCo\CashierRegister\Test\Models\Stripe\User::class, function () {
+$factory->define(\Forgeify\CashierRegister\Test\Models\Stripe\User::class, function () {
     return [
         'name' => 'Name'.Str::random(5),
         'email' => Str::random(5).'@gmail.com',

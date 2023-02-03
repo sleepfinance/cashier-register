@@ -1,15 +1,15 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Concerns;
+namespace Forgeify\CashierRegister\Concerns;
 
-use RenokiCo\CashierRegister\Saas;
+use Forgeify\CashierRegister\Saas;
 
 trait HasPlans
 {
     /**
      * Get the plan this instance belongs to.
      *
-     * @return \RenokiCo\CashierRegister\Plan
+     * @return \Forgeify\CashierRegister\Plan
      */
     public function getPlan()
     {

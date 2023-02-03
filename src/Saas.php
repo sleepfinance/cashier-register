@@ -1,6 +1,6 @@
 <?php
 
-namespace RenokiCo\CashierRegister;
+namespace Forgeify\CashierRegister;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model;
@@ -41,7 +41,7 @@ class Saas
      * @param  string  $name
      * @param  string|int  $id
      * @param  string|int|null  $yearlyId
-     * @return \RenokiCo\CashierRegister\Plan
+     * @return \Forgeify\CashierRegister\Plan
      */
     public static function plan(string $name, $id, $yearlyId = null)
     {
@@ -58,7 +58,7 @@ class Saas
      * @param  string  $name
      * @param  string|int  $id
      * @param  int|float  $value
-     * @return \RenokiCo\CashierRegister\Feature
+     * @return \Forgeify\CashierRegister\Feature
      */
     public static function feature(string $name, $id, $value = 0)
     {
@@ -71,7 +71,7 @@ class Saas
      * @param  string  $name
      * @param  string|int  $id
      * @param  int|float  $value
-     * @return \RenokiCo\CashierRegister\MeteredFeature
+     * @return \Forgeify\CashierRegister\MeteredFeature
      */
     public static function meteredFeature(string $name, $id, $value = 0)
     {
@@ -85,7 +85,7 @@ class Saas
      * @param  string  $name
      * @param  float  $price
      * @param  string  $currency
-     * @return \RenokiCo\CashierRegister\Item
+     * @return \Forgeify\CashierRegister\Item
      */
     public static function item($id, string $name, float $price = 0.00, string $currency = 'EUR')
     {
@@ -112,7 +112,7 @@ class Saas
      * Apply the feature usage sync via callback.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $subscription
-     * @param  \RenokiCo\CashierRegister\Feature  $feature
+     * @param  \Forgeify\CashierRegister\Feature  $feature
      * @return int|float|null
      */
     public static function applyFeatureUsageSync(Model $subscription, Feature $feature)
@@ -170,8 +170,8 @@ class Saas
     /**
      * Get a specific plan by id or by yearly ID.
      *
-     * @param  \RenokiCo\CashierRegister\Plan|string|int|null  $plan
-     * @return \RenokiCo\CashierRegister\Plan|null
+     * @param  \Forgeify\CashierRegister\Plan|string|int|null  $plan
+     * @return \Forgeify\CashierRegister\Plan|null
      */
     public static function getPlan($plan)
     {
@@ -197,8 +197,8 @@ class Saas
     /**
      * Get a specific item by id.
      *
-     * @param  \RenokiCo\CashierRegister\Item|string|int  $item
-     * @return \RenokiCo\CashierRegister\Item|null
+     * @param  \Forgeify\CashierRegister\Item|string|int  $item
+     * @return \Forgeify\CashierRegister\Item|null
      */
     public static function getItem($item)
     {

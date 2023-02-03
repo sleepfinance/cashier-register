@@ -1,10 +1,10 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Models;
+namespace Forgeify\CashierRegister\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use RenokiCo\CashierRegister\Feature;
-use RenokiCo\CashierRegister\Saas;
+use Forgeify\CashierRegister\Feature;
+use Forgeify\CashierRegister\Saas;
 
 class Usage extends Model
 {
@@ -27,7 +27,7 @@ class Usage extends Model
      * Recalculate the usage values based on the user-defined callbacks.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $subscription
-     * @param  \RenokiCo\CashierRegister\Feature  $feature
+     * @param  \Forgeify\CashierRegister\Feature  $feature
      * @return self
      */
     public function recalculate(Model $subscription, Feature $feature)

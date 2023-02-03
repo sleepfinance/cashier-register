@@ -1,6 +1,6 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Test\Models\Paddle;
+namespace Forgeify\CashierRegister\Test\Models\Paddle;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Paddle\Billable;

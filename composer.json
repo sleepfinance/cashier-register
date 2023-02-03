@@ -1,20 +1,16 @@
 {
-    "name": "renoki-co/cashier-register",
+    "name": "forgeify/cashier-register",
     "description": "Cashier Register is a simple quota feature usage tracker for Laravel Cashier subscriptions.",
     "keywords": ["laravel", "php", "saas"," subscription", "plans", "cashier", "stripe", "paddle", "quota", "quotas"],
     "license": "Apache-2.0",
-    "homepage": "https://github.com/renoki-co/cashier-register",
+    "homepage": "https://github.com/sleepfinance/cashier-register",
     "authors": [
         {
             "name": "Alex Renoki",
-            "homepage": "https://github.com/rennokki",
+            "homepage": "https://github.com/sleepfinance",
             "role": "Developer"
         }
     ],
-    "require": {
-        "illuminate/database": "^8.40",
-        "illuminate/support": "^8.40"
-    },
     "autoload": {
         "psr-4": {
             "RenokiCo\\CashierRegister\\": "src/"
@@ -33,12 +29,6 @@
         "laravel/cashier": "Required in case you are using Stripe.",
         "laravel/cashier-paddle": "Required in case you are using Paddle."
     },
-    "require-dev": {
-        "laravel/legacy-factories": "^1.1",
-        "mockery/mockery": "^1.4",
-        "orchestra/database": "^5.0|^6.0",
-        "orchestra/testbench": "^5.0|^6.0"
-    },
     "config": {
         "sort-packages": true
     },
@@ -49,5 +39,17 @@
                 "RenokiCo\\CashierRegister\\CashierRegisterServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.5",
+        "orchestra/database": "7.0.x-dev",
+        "orchestra/testbench": "7.x-dev"
+    },
+    "require": {
+        "illuminate/contracts": "9.x-dev",
+        "illuminate/database": "9.x-dev",
+        "illuminate/support": "9.x-dev",
+        "laravel/cashier": "15.x-dev",
+        "laravel/legacy-factories": "1.x-dev"
     }
 }

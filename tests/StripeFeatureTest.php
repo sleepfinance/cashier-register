@@ -1,12 +1,12 @@
 <?php
 
-namespace RenokiCo\CashierRegister\Test;
+namespace Forgeify\CashierRegister\Test;
 
 use Carbon\Carbon;
 use Laravel\Cashier\Subscription;
-use RenokiCo\CashierRegister\Feature as SaasFeature;
-use RenokiCo\CashierRegister\Saas;
-use RenokiCo\CashierRegister\Test\Models\Stripe\User;
+use Forgeify\CashierRegister\Feature as SaasFeature;
+use Forgeify\CashierRegister\Saas;
+use Forgeify\CashierRegister\Test\Models\Stripe\User;
 use Stripe\ApiResource;
 use Stripe\Exception\InvalidRequestException;
 use Stripe\Plan;
@@ -136,9 +136,9 @@ class StripeFeatureTest extends TestCase
     /**
      * Create a new subscription.
      *
-     * @param  \RenokiCo\CashierRegister\Test\Models\Stripe\User  $user
-     * @param  \RenokiCo\CashierRegister\Plan  $plan
-     * @return \RenokiCo\CashierRegister\Models\Stripe\Subscription
+     * @param  \Forgeify\CashierRegister\Test\Models\Stripe\User  $user
+     * @param  \Forgeify\CashierRegister\Plan  $plan
+     * @return \Forgeify\CashierRegister\Models\Stripe\Subscription
      */
     protected function createSubscription($user, $plan)
     {

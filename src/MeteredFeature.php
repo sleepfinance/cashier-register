@@ -1,6 +1,6 @@
 <?php
 
-namespace RenokiCo\CashierRegister;
+namespace Forgeify\CashierRegister;
 
 class MeteredFeature extends Feature
 {
