@@ -41,13 +41,13 @@
         }
     },
     "require": {
-        "laravel/cashier": "^14.7",
-        "orchestra/database": "dev-master"
+        "laravel/cashier": "^14.7"
     },
     "require-dev": {
         "illuminate/contracts": "^9.50",
         "illuminate/database": "^9.50",
         "illuminate/support": "^9.50",
-        "laravel/legacy-factories": "^1.3"
+        "laravel/legacy-factories": "^1.3",
+        "orchestra/database": "7.0.x-dev"
     }
 }
