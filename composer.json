@@ -13,12 +13,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "RenokiCo\\CashierRegister\\": "src/"
+            "Forgeify\\CashierRegister\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RenokiCo\\CashierRegister\\Test\\": "tests"
+            "Forgeify\\CashierRegister\\Test\\": "tests"
         }
     },
     "scripts": {
@@ -36,7 +36,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RenokiCo\\CashierRegister\\CashierRegisterServiceProvider"
+                "Forgeify\\CashierRegister\\CashierRegisterServiceProvider"
             ]
         }
     },
