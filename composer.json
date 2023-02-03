@@ -40,16 +40,14 @@
             ]
         }
     },
-    "require-dev": {
-        "mockery/mockery": "^1.5",
-        "orchestra/database": "7.0.x-dev",
-        "orchestra/testbench": "7.x-dev"
-    },
     "require": {
-        "illuminate/contracts": "9.x-dev",
-        "illuminate/database": "9.x-dev",
-        "illuminate/support": "9.x-dev",
-        "laravel/cashier": "15.x-dev",
-        "laravel/legacy-factories": "1.x-dev"
+        "laravel/cashier": "^14.7",
+        "orchestra/database": "dev-master"
+    },
+    "require-dev": {
+        "illuminate/contracts": "^9.50",
+        "illuminate/database": "^9.50",
+        "illuminate/support": "^9.50",
+        "laravel/legacy-factories": "^1.3"
     }
 }
