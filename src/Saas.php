@@ -34,6 +34,7 @@ class Saas
      * @var string|null
      */
     public static $currency;
+    public static $symbol;
 
     /**
      * Start creating a new plan.
@@ -43,12 +44,10 @@ class Saas
      * @param  string|int|null  $yearlyId
      * @return \Forgeify\CashierRegister\Plan
      */
-    public static function plan(string $name, $id, $yearlyId = null)
+    public static function plan(string $name, $id, $yearlyId = null): \Forgeify\CashierRegister\Plan
     {
         $plan = new Plan($name, $id, $yearlyId);
-
         static::$plans[] = $plan;
-
         return $plan;
     }
 
@@ -128,9 +127,10 @@ class Saas
      * @param  string  $currency
      * @return void
      */
-    public static function currency(string $currency)
+    public static function currency(string $currency, $symbol = null)
     {
         static::$currency = $currency;
+        static::$symbol = $symbol;
     }
 
     /**
@@ -143,6 +143,18 @@ class Saas
     public static function getCurrency(string $default = null)
     {
         return static::$currency ?: $default;
+    }
+
+    /**
+     * Get the global currency if set.
+     * Returns a default value if currency is not set.
+     *
+     * @param  string|null  $default
+     * @return string|null
+     */
+    public static function getSymbol(string $default = null)
+    {
+        return static::$symbol ?: $default;
     }
 
     /**

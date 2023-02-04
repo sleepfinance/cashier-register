@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Forgeify\CashierRegister\CashierRegisterServiceProvider as BaseServiceProvider;
 use Forgeify\CashierRegister\Saas;
+use Illuminate\Support\Str;
 
 class CashierRegisterServiceProvider extends BaseServiceProvider
 {
@@ -15,32 +16,32 @@ class CashierRegisterServiceProvider extends BaseServiceProvider
     public function boot()
     {
         parent::boot();
-
-        Saas::currency('EUR');
-
-        $free = Saas::plan('Free Plan', 'price_free')
-            ->monthly(0)
-            ->features([
-                Saas::feature('5 Seats', 'seats', 5)->notResettable(),
-                Saas::feature('10,000 mails', 'mails', 10000),
-            ]);
-
-        Saas::plan('Tier One', 'price_1')
-            ->monthly(10)
-            ->features([
-                Saas::feature('Unlimited Seats', 'seats')->unlimited()->notResettable(),
-                Saas::feature('20,000 mails', 'mails', 20000),
-                Saas::feature('Beta Access', 'beta.access')->unlimited(),
-            ]);
-
-        Saas::plan('Tier Two', 'price_2')
-            ->monthly(20)
-            ->features([
-                Saas::feature('Unlimited Seats', 'seats')->unlimited()->notResettable(),
-                Saas::feature('30,000 mails', 'mails', 30000),
-                Saas::feature('Beta Access', 'beta.access')->unlimited(),
-            ]);
+        $plans = config('saas.plans');
+        $currency = config('saas.currency');
+        $currency_symbol = config('saas.currency_symbol');
+        Saas::currency($currency, $currency_symbol);
+        collect($plans)
+            ->map(fn ($plan) => (object)$plan)
+            ->each(function ($plan) {
+                $features = collect($plan->features)
+                    ->map(fn ($ft) => Saas::feature($ft, Str::slug($ft))->notResettable())
+                    ->all();
+                $plan = Saas::plan($plan->name, $plan->monthly_id, $plan->yearly_id ?? null)
+                    ->serverMonitor($plan->server_monitor ?? false)
+                    ->dbBackups($plan->db_backups ?? false)
+                    ->teams($plan->teams ?? false)
+                    ->servers($plan->servers ?? null)
+                    ->sites($plan->sites ?? null)
+                    ->teams($plan->teams ?? false)
+                    ->monthly($plan->monthly_price ?? 0)
+                    ->description($plan->description ?? 0)
+                    ->features($features);
+            });
     }
+
+
+
+
 
     /**
      * Register the service provider.

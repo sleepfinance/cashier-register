@@ -11,6 +11,7 @@ class Plan implements Arrayable
     use Concerns\HasData;
     use Concerns\HasFeatures;
     use Concerns\HasPrice;
+    use Concerns\HasServer;
 
     /**
      * The yearly instance price.
@@ -18,6 +19,13 @@ class Plan implements Arrayable
      * @var float
      */
     protected $yearlyPrice = 0.00;
+
+    /**
+     * The yearly instance price.
+     *
+     * @var string|null
+     */
+    protected $yearlyId = null;
 
     /**
      * Create a new plan builder.
@@ -38,13 +46,12 @@ class Plan implements Arrayable
     /**
      * Set the yearly ID for the plan.
      *
-     * @param  string|int  $yearlyId
+     * @param  string|int|null  $yearlyId
      * @return self
      */
     public function yearlyId($id)
     {
         $this->yearlyId = $id;
-
         return $this;
     }
 
@@ -115,7 +122,12 @@ class Plan implements Arrayable
             'yearlyId' => $this->getYearlyId(),
             'name' => $this->getName(),
             'description' => $this->getDescription(),
+            'servers' => $this->getServers(),
+            'sites' => $this->getSites(),
             'price' => $this->getMonthlyPrice(),
+            'teams' => $this->getTeams(),
+            'db_backups' => $this->getDbBackups(),
+            'server_monitoring' => $this->getServerMonitor(),
             'monthly_price' => $this->getMonthlyPrice(),
             'yearly_price' => $this->getYearlyPrice(),
             'currency' => $this->getCurrency(),
